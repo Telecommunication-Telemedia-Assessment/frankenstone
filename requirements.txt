@@ -1,0 +1,12 @@
+tensorflow[and-cuda]
+tensorflow_decision_forests
+pandas
+numpy
+torch
+torchvision
+decord
+pyyaml
+#timm
+#clip
+einops
+#scikit-video
