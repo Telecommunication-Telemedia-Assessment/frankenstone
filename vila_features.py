@@ -38,7 +38,7 @@ def vila_model():
     return predict
 
 
-def extract_features(video_path):
+def extract_features(video_path, frame_sampling=True):
     # read video frames to gpu memory
     all_frames = video_frames(video_path)
     frames = sample_non_uniform(all_frames, k=6)  # k = 5

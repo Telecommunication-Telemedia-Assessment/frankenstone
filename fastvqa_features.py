@@ -40,7 +40,7 @@ class dotdict(dict):
     __delattr__ = dict.__delitem__
 
 
-def extract_features(video):
+def extract_features(video, frame_sampling=True):
     args = {
         "model": "FasterVQA",
         "device": "cuda",
@@ -98,3 +98,5 @@ def extract_features(video):
         "fastervqa_score": score,
         "fastervqa_raw": raw
     }
+
+# TODO add general CLI

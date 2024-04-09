@@ -8,8 +8,8 @@ import decord
 from decord import VideoReader
 
 
-def video_frames(video_path):
-    decord.bridge.set_bridge('tensorflow')
+def video_frames(video_path, bridge="tensorflow"):
+    decord.bridge.set_bridge(bridge)
     vr = VideoReader(video_path)
     fps = round(vr.get_avg_fps())
     frames = []
@@ -42,6 +42,21 @@ def merge_dicts(dicts):
 
 def prefix_dict(x, prefix):
     return {prefix + "" + k: x[k] for k in x}
+
+
+def chunk_list(datas, chunksize):
+    """Split list into the chucks
+
+    Params:
+        datas     (list): data that want to split into the chunk
+        chunksize (int) : how much maximum data in each chunks
+
+    Returns:
+        chunks (obj): the chunk of list
+    """
+
+    for i in range(0, len(datas), chunksize):
+        yield datas[i:i + chunksize]
 
 
 def weighted_mean(res):

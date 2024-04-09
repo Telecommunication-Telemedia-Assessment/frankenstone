@@ -20,59 +20,36 @@ import pandas as pd
 import decord
 
 
-def video_frames(video_path, sampling=30):
-    decord.bridge.set_bridge('torch')
-    vr = decord.VideoReader(video_path)
-    frames = []
-    for x in range(0, len(vr), sampling):
-        frame = vr[x]
-        frames.append(vr[x])
-    return frames
+from utils import video_frames
+from utils import sample_non_uniform
+from utils import prefix_dict
+from utils import chunk_list
 
 
-def prefix_dict(x, prefix):
-    return {prefix + "" + k: x[k] for k in x}
-
-
-def chunk_list(datas, chunksize):
-    """Split list into the chucks
-
-    Params:
-        datas     (list): data that want to split into the chunk
-        chunksize (int) : how much maximum data in each chunks
-
-    Returns:
-        chunks (obj): the chunk of list
-    """
-
-    for i in range(0, len(datas), chunksize):
-        yield datas[i:i + chunksize]
-
-
-def extract_features(video_path):
+def extract_features(video_path, frame_sampling=True):
     musiq_model = pyiqa.create_metric('musiq').cuda()
 
     print(f"musiq features of {video_path}")
     values = []
-    for frame_batch in chunk_list(video_frames(video_path), 2):
-        #musiq_scores = musiq_model(
-        #    torch.cat([x.permute(2,0, 1).unsqueeze(0) for x in frame_batch])
-        #)
-        #values.extend(musiq_scores.cpu().numpy().flatten())
+    values_cc = []
+    for frame_batch in chunk_list(video_frames(video_path, bridge="torch"), 2):
         musiq_scores = musiq_model(
-            torch.cat([torchvision.transforms.CenterCrop(size=(2*224, 2*224))(x.permute(2,0, 1)).unsqueeze(0) for x in frame_batch])
+           torch.cat([x.permute(2,0, 1).unsqueeze(0) for x in frame_batch])
         )
         values.extend(musiq_scores.cpu().numpy().flatten())
+        musiq_scores_cc = musiq_model(
+            torch.cat([torchvision.transforms.CenterCrop(size=(2*224, 2*224))(x.permute(2,0, 1)).unsqueeze(0) for x in frame_batch])
+        )
+        values_cc.extend(musiq_scores_cc.cpu().numpy().flatten())
 
     res = {
         "musiq": values,
-        "musiq_cc": values
+        "musiq_cc": values_cc
     }
 
     df = pd.DataFrame(res)
     mean = prefix_dict(df.mean().to_dict(), "mean_")
-    last_first_diff = prefix_dict((df.iloc[-1] - df.iloc[0]).to_dict(), "last_first_diff_")
-    return dict(mean, **last_first_diff)
+    return mean
 
 
 if __name__ == "__main__":

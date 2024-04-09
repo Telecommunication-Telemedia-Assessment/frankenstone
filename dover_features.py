@@ -46,7 +46,7 @@ class dotdict(dict):
     __delattr__ = dict.__delitem__
 
 
-def extract_features(video):
+def extract_features(video, frame_sampling=True):
 
     args = {
         #"opt": os.path.join(os.path.dirname(__file__), "./dover.yml"), # "the option file"

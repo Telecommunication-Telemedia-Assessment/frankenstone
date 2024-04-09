@@ -48,7 +48,7 @@ def parse_nvenc(res):
     return infos
 
 
-def extract_features(video):
+def extract_features(video, frame_sampling=False):
     video_path_tmp = os.path.basename(video) + "_tmp.mp4"
     cmd = f"""ffmpeg -loglevel quiet -i {video} -strict -1 -f yuv4mpegpipe -  |  (./nvencc --y4m -i - --ssim --psnr --codec h265 -o {video_path_tmp} 2>&1)"""
     #print(cmd)#--frames <INT>
