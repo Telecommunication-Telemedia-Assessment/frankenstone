@@ -40,9 +40,8 @@ def vila_model():
 
 def extract_features(video_path, frame_sampling=True):
     # read video frames to gpu memory
-    all_frames = video_frames(video_path)
-    frames = sample_non_uniform(all_frames, k=6)  # k = 5
-    print(f"vila features: process {len(frames)} of {len(all_frames)} frames")
+    frames = video_frames(video_path)
+    print(f"vila features: process {len(frames)} frames")
 
     res = {}
 

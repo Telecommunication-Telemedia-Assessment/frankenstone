@@ -7,7 +7,6 @@ import time
 import concurrent.futures
 
 import tensorflow as tf
-import tensorflow_decision_forests as tfdf
 tf.experimental.numpy.experimental_enable_numpy_behavior()
 for x in tf.config.list_physical_devices('GPU'):
     tf.config.experimental.set_memory_growth(x, True)
@@ -22,20 +21,24 @@ import pxl_features
 import vila_features
 import musiq_features
 import qalign_features
+import clip_genre_features
 
 from utils import merge_dicts
 from utils import timeit
 
 
 def extract_features_video(video, frame_sampling):
-    res = [fastvqa_features.extract_features(video)] # fastvqa must be performed in a single thread alone...
+    res = [
+        fastvqa_features.extract_features(video),
+        qalign_features.extract_features(video),
+    ] # must be performed in single threads alone...
     features_fun = [
         nvencc_features.extract_features,
         dover_features.extract_features,
         pxl_features.extract_features,
         vila_features.extract_features,
         musiq_features.extract_features,
-        qalign_features.extract_features
+        clip_genre_features.extract_features
     ]
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(features_fun)) as executor:
         res.extend(executor.map(lambda x: x(video, frame_sampling), features_fun))
