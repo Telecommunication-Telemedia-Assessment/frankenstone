@@ -73,7 +73,8 @@ If you use this software in your research, please include a link to the reposito
 
 ```bibtex
 @article{goering2024frankenstone,
-  title={Frankenstone toolbox for video quality prediction of user-generated content},
-  author={Steve G\"oring},
+  title={The Frankenstone toolbox for video quality analysis
+of user-generated content.},
+  author={Steve G\"oring, Alexander Raake},
 }
 ```
