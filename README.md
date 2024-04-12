@@ -87,7 +87,7 @@ There Frankenstein's monster is somehow "put together" by different pieces, thus
 
 ## acknowledgments
 If you use this software in your research, please include a link to the repository and reference the following paper.
-Do not forget to also cite the corresponding models, e.g. DOVER, Q-Align, VILA, MUSIQ, FasterVQA.
+Do not forget to also cite the corresponding models, e.g., [DOVER](https://github.com/VQAssessment/DOVER), [Q-Align](https://github.com/Q-Future/Q-Align), [VILA](https://github.com/google-research/google-research/tree/master/vila), [MUSIQ](https://github.com/google-research/google-research/tree/master/musiq), and [FasterVQA](https://github.com/VQAssessment/FAST-VQA-and-FasterVQA) if you use them in your research.
 
 ```bibtex
 @article{goering2024frankenstone,
