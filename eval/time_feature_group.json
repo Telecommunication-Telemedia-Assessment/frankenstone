@@ -1,0 +1,12 @@
+[
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 54.47783650341444, "values": [54.58444289606996, 54.72394706308842, 54.125119551084936], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "all"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 6.435833703028038, "values": [6.4399954080581665, 6.4413829140830785, 6.426122786942869], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "fastervqa"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 27.802656625397503, "values": [27.752090774010867, 27.788703720085323, 27.86717538209632], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "qalign"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 10.31609220065487, "values": [10.314879596000537, 10.315887192962691, 10.31750981300138], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "nvencc"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 9.465937693680948, "values": [9.458055580966175, 9.501407454023138, 9.438350046053529], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "dover"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 14.899380345673611, "values": [14.952798374928534, 14.920079996110871, 14.825262665981427], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "pxl"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 22.73989531925569, "values": [22.794179538963363, 22.63387114997022, 22.79163526883349], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "vila"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 15.745841927360743, "values": [16.198850355111063, 14.835211341967806, 16.20346408500336], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "musiq"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 7.32949959867013, "values": [7.401188401971012, 7.310768763069063, 7.276541630970314], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "clip_genre"},
+    {"cmd": "./frankenstone.py data/Sports_2160P-1733.mkv", "avgtime": 80.2723049686756, "values": [80.01901051122695, 79.99301662296057, 80.80488777183928], "arg_0": "./frankenstone.py", "arg_1": "data/Sports_2160P-1733.mkv", "what": "sequential"}
+]
