@@ -57,7 +57,24 @@ this command should show the gpu/gpus, and should in the best case not complain,
 A call of `./frankenstone.py --help` should result in: (important run it within your conda environment)
 
 ```
-TODO
+usage: frankenstone.py [-h] [--frame_sampling]
+                       [--features_folder FEATURES_FOLDER]
+                       video [video ...]
+
+frankenstone toolbox for UGC video quality models/features
+
+positional arguments:
+  video                 video to process
+
+options:
+  -h, --help            show this help message and exit
+  --frame_sampling, -fs
+                        use frame sampling (default: False)
+  --features_folder FEATURES_FOLDER
+                        only for calculate features, folder to store the
+                        features (default: features)
+
+stg7 2024
 ```
 
 
