@@ -91,8 +91,7 @@ Do not forget to also cite the corresponding models, e.g. DOVER, Q-Align, VILA, 
 
 ```bibtex
 @article{goering2024frankenstone,
-  title={The Frankenstone toolbox for video quality analysis
-of user-generated content.},
+  title={The Frankenstone toolbox for video quality analysis of user-generated content.},
   author={Steve G\"oring, Alexander Raake},
 }
 ```
