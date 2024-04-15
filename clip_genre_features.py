@@ -17,7 +17,7 @@ from utils import prefix_dict
 def extract_features(video_path, frame_sampling=True):
     model, _, preprocess = open_clip.create_model_and_transforms(
         'ViT-B-32', pretrained='laion2b_s34b_b79k',
-        cache_dir="torch",
+        cache_dir=os.path.join(os.path.dirname(__file__),"pretrained_weights/torch"),
         #device="cuda"
     )
     tokenizer = open_clip.get_tokenizer('ViT-B-32')
@@ -69,7 +69,6 @@ def extract_features(video_path, frame_sampling=True):
     }
 
     return res
-    #return prefix_dict(pd.DataFrame(values).mean().to_dict(), "mean_")
 
 
 if __name__ == "__main__":
