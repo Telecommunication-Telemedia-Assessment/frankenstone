@@ -103,7 +103,7 @@ def extract_features(video, frame_sampling=True):
 if __name__ == "__main__":
 
     # argument parsing
-    parser = argparse.ArgumentParser(description='dover features estimation',
+    parser = argparse.ArgumentParser(description='fastervqa features estimation',
                                      epilog="stg7 2024",
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("video", type=str, nargs="+", help="video to extract scores")
