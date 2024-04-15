@@ -99,4 +99,26 @@ def extract_features(video, frame_sampling=True):
         "fastervqa_raw": raw
     }
 
-# TODO add general CLI
+
+if __name__ == "__main__":
+
+    # argument parsing
+    parser = argparse.ArgumentParser(description='dover features estimation',
+                                     epilog="stg7 2024",
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument("video", type=str, nargs="+", help="video to extract scores")
+    parser.add_argument("--features_folder", type=str, default="features_dover", help="only for calculate features, folder to store the features")
+
+    a = vars(parser.parse_args())
+    for video in a["video"]:
+        features = extract_features(video)
+        features["video"] = video
+        print(features)
+        featuresfile = os.path.join(
+            a["features_folder"], os.path.splitext(os.path.basename(video))[0] + ".json"
+        )
+        os.makedirs(a["features_folder"], exist_ok=True)
+
+        print(f"saving features in {featuresfile}")
+        with open(featuresfile, "w") as xfp:
+            json.dump(features, xfp, indent=4, sort_keys=True)
