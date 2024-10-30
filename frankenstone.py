@@ -33,7 +33,7 @@ def extract_features_video(video, frame_sampling):
         qalign_features.extract_features(video),
     ] # must be performed in single threads alone...
     features_fun = [
-        nvencc_features.extract_features,
+        #nvencc_features.extract_features,
         dover_features.extract_features,
         pxl_features.extract_features,
         vila_features.extract_features,

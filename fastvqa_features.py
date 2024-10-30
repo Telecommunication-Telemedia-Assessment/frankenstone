@@ -6,6 +6,8 @@ from fastvqa.datasets import get_spatial_fragments, SampleFrames, FragmentSample
 from fastvqa.models import DiViDeAddEvaluator
 import numpy as np
 import os
+import json
+import argparse
 
 
 def sigmoid_rescale(score, model="FasterVQA"):

@@ -24,21 +24,23 @@ from utils import prefix_dict
 
 
 def extract_features(video_path, frame_sampling=True):
-    qalign_model = pyiqa.create_metric('qalign').cuda()
+    device = torch.device("cuda") # torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+    qalign_model = pyiqa.create_metric('qalign', device=device)
 
     print(f"qalign features of {video_path}")
     values = []
     for frame in video_frames(video_path, bridge="torch"):
         qalign_quality = qalign_model(
-           frame.permute(2,0, 1).unsqueeze(0),
+           frame.permute(2,0, 1).unsqueeze(0) / 255.0,
            task_='quality'
         )
         qalign_aesthetic = qalign_model(
-           frame.permute(2,0, 1).unsqueeze(0),
+           frame.permute(2,0, 1).unsqueeze(0)/ 255.0,
            task_='aesthetic'
         )
         # do cc calculations
-        frame_cc = torchvision.transforms.CenterCrop(size=(2*224, 2*224))(frame.permute(2,0, 1)).unsqueeze(0)
+        frame_cc = torchvision.transforms.CenterCrop(size=(2*224, 2*224))(frame.permute(2,0, 1)).unsqueeze(0) / 255.0
         qalign_quality_cc = qalign_model(
            frame_cc,
            task_='quality'

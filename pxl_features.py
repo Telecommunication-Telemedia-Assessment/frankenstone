@@ -97,7 +97,7 @@ def calc_sharpness(image):
         sigma=2,
         padding="REFLECT"
     )
-    return tf.keras.metrics.mean_squared_error(blurry, img).numpy().mean()
+    return tf.keras.metrics.mse(blurry, img).numpy().mean()
 
 
 def calc_ti(prev_frame, curr_frame):

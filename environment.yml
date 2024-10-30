@@ -1,4 +1,4 @@
-name: competition
+name: fs
 channels:
   - defaults
 dependencies:

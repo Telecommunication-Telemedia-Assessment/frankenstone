@@ -34,11 +34,11 @@ def extract_features(video_path, frame_sampling=True):
     values_cc = []
     for frame_batch in chunk_list(video_frames(video_path, bridge="torch"), 2):
         musiq_scores = musiq_model(
-           torch.cat([x.permute(2,0, 1).unsqueeze(0) for x in frame_batch])
+           torch.cat([x.permute(2,0, 1).unsqueeze(0) / 255.0 for x in frame_batch])
         )
         values.extend(musiq_scores.cpu().numpy().flatten())
         musiq_scores_cc = musiq_model(
-            torch.cat([torchvision.transforms.CenterCrop(size=(2*224, 2*224))(x.permute(2,0, 1)).unsqueeze(0) for x in frame_batch])
+            torch.cat([torchvision.transforms.CenterCrop(size=(2*224, 2*224))(x.permute(2,0, 1)).unsqueeze(0) / 255.0 for x in frame_batch])
         )
         values_cc.extend(musiq_scores_cc.cpu().numpy().flatten())
 
