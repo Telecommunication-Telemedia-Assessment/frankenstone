@@ -37,7 +37,7 @@ def parse_nvenc(res):
             infos["fps"] = round(eval(re.search(".*,(.*) fps.*", l).group(1).strip()), 2)
         if "encoded" in l:
             infos["bitrate"] = float(re.search(".*fps, (.*) kbps,.*", l).group(1).strip())
-    num_frames = infos["iframes_ratio"] + infos["pframes_ratio"] + infos["bframes_ratio"]
+    num_frames = max(1, infos["iframes_ratio"] + infos["pframes_ratio"] + infos["bframes_ratio"])
     infos["iframes_ratio"] /= num_frames
     infos["iframes_ratio"] = round(infos["iframes_ratio"], 4)
     infos["pframes_ratio"] /= num_frames

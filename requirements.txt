@@ -1,7 +1,6 @@
-tensorflow[and-cuda]
-#tensorflow_decision_forests
+tensorflow[and-cuda]==2.16.2
 tensorflow_hub
-tf-models-official
+tf-models-official==2.16.0
 pandas
 numpy
 torch

@@ -10,6 +10,7 @@ This is the frankenstone toolbox to evaluate and unify models and features for u
 * ffmpeg install via conda (see `conda base setup`) or globally
 * python 3.11 in a conda environment with cuda (see `conda base setup`) 
 * python dependencies: `python3 -m pip install -r requirements.txt`
+* run `./prepare.sh` to download missing models (most of the included methods download required models ad hoc in the first run)
 
 * **Important** to run the model, you need a GPU, e.g. Nvidia 3090 with at least 12 GB of GPU memory (for 4K videos), tested with Nvidia 3090 Ti 24 GB GPU Ram.
 
@@ -77,7 +78,8 @@ options:
 stg7 2024
 ```
 
-
+## debug
+The best approach to debug is to use the invididual scripts (e.g. `pxl_features.py`) separately to identify issues.
 
 
 ## origin of the name
@@ -86,7 +88,7 @@ There Frankenstein's monster is somehow "put together" by different pieces, thus
 
 
 ## acknowledgments
-If you use this software in your research, please include a link to the repository and reference the following paper.
+If you use this software in your research, please include a link to the repository and reference the following [paper](https://ieeexplore.ieee.org/document/10598249).
 Do not forget to also cite the corresponding models, e.g., [NVENC](https://github.com/rigaya/NVEnc), [DOVER](https://github.com/VQAssessment/DOVER), [Q-Align](https://github.com/Q-Future/Q-Align), [VILA](https://github.com/google-research/google-research/tree/master/vila), [MUSIQ](https://github.com/google-research/google-research/tree/master/musiq), and [FasterVQA](https://github.com/VQAssessment/FAST-VQA-and-FasterVQA) if you use them in your research.
 
 ```bibtex

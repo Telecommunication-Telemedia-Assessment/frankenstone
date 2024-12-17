@@ -30,10 +30,10 @@ from utils import timeit
 def extract_features_video(video, frame_sampling):
     res = [
         fastvqa_features.extract_features(video),
-        qalign_features.extract_features(video),
+        #qalign_features.extract_features(video)
     ] # must be performed in single threads alone...
     features_fun = [
-        #nvencc_features.extract_features,
+        #nvencc_features.extract_features, # does not work anymore, needs a working nvencc binary
         dover_features.extract_features,
         pxl_features.extract_features,
         vila_features.extract_features,
