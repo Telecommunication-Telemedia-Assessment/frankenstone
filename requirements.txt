@@ -7,7 +7,7 @@ torch
 torchvision
 decord
 pyyaml
-pyiqa
+pyiqa==0.1.13
 #timm
 #clip
 einops
