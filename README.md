@@ -94,7 +94,7 @@ Do not forget to also cite the corresponding models, e.g., [NVENC](https://githu
 ```bibtex
 @inproceedings{goering2024frankenstone,
   title={The Frankenstone toolbox for video quality analysis of user-generated content.},
-  author={Steve G\"oring, Alexander Raake},
+  author={Steve G\"boring and Alexander Raake},
   booktitle="16th International Conference on Quality of Multimedia Experience (QoMEX)",
   year={2024},
 }
