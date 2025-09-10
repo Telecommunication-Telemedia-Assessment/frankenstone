@@ -109,7 +109,7 @@ if __name__ == "__main__":
                                      epilog="stg7 2024",
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("video", type=str, nargs="+", help="video to extract scores")
-    parser.add_argument("--features_folder", type=str, default="features_dover", help="only for calculate features, folder to store the features")
+    parser.add_argument("--features_folder", type=str, default="features_fastervqa", help="only for calculate features, folder to store the features")
 
     a = vars(parser.parse_args())
     for video in a["video"]:
